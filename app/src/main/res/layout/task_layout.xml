@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:elevation="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_15sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/listCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:padding="@dimen/_15sdp">
+
+            <TextView
+                android:id="@+id/task"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="@dimen/_34sdp"
+                android:text="Task Name"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_17ssp"
+                android:background="#FFFFFF"
+                android:maxLines="1"/>
+
+           <ImageView
+               android:id="@+id/delete"
+               android:layout_width="@dimen/_30sdp"
+               android:layout_height="@dimen/_30sdp"
+               android:src="@drawable/baseline_delete_24"
+               android:layout_alignParentEnd="true"/>
+
+            <ImageView
+                android:id="@+id/tickBox"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/empty_box_outline_blank_24"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="@dimen/_30sdp"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

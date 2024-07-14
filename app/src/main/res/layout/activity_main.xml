@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF914D"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:text="To-Do List"
+        android:background="@drawable/baseline_rectangle_242"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_65sdp"
+        android:textSize="@dimen/_30ssp"
+        android:textColor="@color/blue_dark"
+        android:textStyle="bold"
+        android:padding="@dimen/_10sdp"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginLeft="@dimen/_25sdp" />
+
+    <ImageView
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:src="@drawable/logo"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/_10sdp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_90sdp"/>
+
+    <ImageView
+        android:id="@+id/addBtn"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:src="@drawable/add"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_35sdp"
+        android:layout_marginRight="@dimen/_15sdp"/>
+
+
+</RelativeLayout>
