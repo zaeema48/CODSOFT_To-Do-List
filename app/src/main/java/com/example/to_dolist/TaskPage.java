@@ -44,10 +44,9 @@ public class TaskPage extends AppCompatActivity {
                 if(!task.isEmpty()) {
                     Toast.makeText(TaskPage.this, "Task Added", Toast.LENGTH_SHORT).show();
                     ToDoListModel model= new ToDoListModel(task);
-                    model.setTask(task);
-                    toDoListDao.insert(model);
+                    toDoListDao.insert(task);
                     taskList.clear();
-                    taskList.add(toDoListDao.));
+                    taskList.add(task);
                     adapter.notifyDataSetChanged();
                     finish();
                 }
