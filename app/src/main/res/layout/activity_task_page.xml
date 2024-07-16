@@ -31,7 +31,7 @@
     <EditText
         android:id="@+id/addTask"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_210sdp"
+        android:layout_height="@dimen/_110sdp"
         android:hint="Add New Task"
         android:textSize="@dimen/_14ssp"
         android:background="#D0D4E6"
@@ -48,14 +48,14 @@
         android:layout_height="@dimen/_55sdp"
         android:src="@drawable/save"
         android:layout_marginLeft="@dimen/_150sdp"
-        android:layout_marginTop="@dimen/_420sdp"/>
+        android:layout_marginTop="@dimen/_440sdp"/>
 
     <ImageView
         android:id="@+id/del"
         android:layout_width="@dimen/_55sdp"
         android:layout_height="@dimen/_55sdp"
         android:src="@drawable/white_delete"
-        android:layout_marginTop="@dimen/_420sdp"
+        android:layout_marginTop="@dimen/_440sdp"
         android:layout_marginLeft="@dimen/_92sdp"/>
 
 </RelativeLayout>

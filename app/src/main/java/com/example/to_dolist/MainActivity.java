@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static  RecyclerAdapter adapter;
     public static List<ToDoListModel>taskList;
+    private ToDoListDao toDoListDao;
 
     private ExecutorService executorService; //to handler the pool of threads
 
