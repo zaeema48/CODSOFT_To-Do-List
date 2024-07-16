@@ -27,32 +27,18 @@
         android:src="@drawable/logo"
         android:layout_alignParentRight="true"
         android:layout_marginTop="@dimen/_10sdp"/>
-    
-    <EditText
-        android:id="@+id/addTitle"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:hint="Add Title"
-        android:textSize="@dimen/_14ssp"
-        android:background="#D0D4E6"
-        android:padding="@dimen/_10sdp"
-        android:textColor="@color/black"
-        android:textStyle="normal"
-        android:layout_marginTop="@dimen/_140sdp"
-        android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginRight="@dimen/_20sdp"/>
 
     <EditText
         android:id="@+id/addTask"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_120sdp"
+        android:layout_height="@dimen/_210sdp"
         android:hint="Add New Task"
         android:textSize="@dimen/_14ssp"
         android:background="#D0D4E6"
         android:padding="@dimen/_10sdp"
         android:textColor="@color/black"
         android:textStyle="normal"
-        android:layout_marginTop="@dimen/_220sdp"
+        android:layout_centerInParent="true"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"/>
 
@@ -62,14 +48,14 @@
         android:layout_height="@dimen/_55sdp"
         android:src="@drawable/save"
         android:layout_marginLeft="@dimen/_150sdp"
-        android:layout_marginTop="@dimen/_400sdp"/>
+        android:layout_marginTop="@dimen/_420sdp"/>
 
     <ImageView
         android:id="@+id/del"
         android:layout_width="@dimen/_55sdp"
         android:layout_height="@dimen/_55sdp"
         android:src="@drawable/white_delete"
-        android:layout_marginTop="@dimen/_400sdp"
+        android:layout_marginTop="@dimen/_420sdp"
         android:layout_marginLeft="@dimen/_92sdp"/>
 
 </RelativeLayout>

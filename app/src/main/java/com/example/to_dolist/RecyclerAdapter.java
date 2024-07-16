@@ -1,6 +1,7 @@
 package com.example.to_dolist;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ import java.util.List;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        CardView cardView;
         TextView task;
         ImageView tickBox, deleteBtn;
 
@@ -24,6 +27,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             task=itemView.findViewById(R.id.task);
             tickBox=itemView.findViewById(R.id.tickBox);
             deleteBtn=itemView.findViewById(R.id.delete);
+            cardView=itemView.findViewById(R.id.cardView);
         }
     }
 
@@ -43,12 +47,37 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerAdapter.ViewHolder holder, int position) {
-        holder.task.setText(modelList.get(position).g);
+        holder.task.setText(modelList.get(position).getTask());
+
+        if(modelList.get(position).isDone()){
+            holder.tickBox.setImageResource(R.drawable.check_box_24);
+        }
+
+        holder.tickBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(modelList.get(position).isDone()){
+                    holder.tickBox.setImageResource(R.drawable.empty_box_outline_blank_24);
+                }
+                else{
+                    holder.tickBox.setImageResource(R.drawable.check_box_24);
+                }
+            }
+        });
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, TaskPage.class);
+                intent.putExtra("toDoList", modelList.get(position));
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return modelList.size();
     }
 
 
