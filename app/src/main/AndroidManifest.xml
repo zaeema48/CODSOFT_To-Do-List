@@ -13,10 +13,10 @@
         android:theme="@style/Theme.ToDoList"
         tools:targetApi="31">
         <activity
-            android:name=".TaskPage"
+            android:name=".EditTask"
             android:exported="false" />
         <activity
-            android:name=".AddToDoList"
+            android:name=".AddTask"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

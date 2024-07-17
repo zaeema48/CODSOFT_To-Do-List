@@ -41,4 +41,5 @@ dependencies {
     implementation 'com.intuit.sdp:sdp-android:1.1.0' //for size
     implementation 'com.intuit.ssp:ssp-android:1.1.0'
     implementation "com.airbnb.android:lottie:3.7.0" //lottie files
+    implementation 'androidx.room:room-runtime:2.4.3' //for room database
 }

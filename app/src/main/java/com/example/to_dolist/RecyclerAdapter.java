@@ -68,7 +68,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, TaskPage.class);
+                Intent intent = new Intent(context, EditTask.class);
                 intent.putExtra("toDoList", modelList.get(position));
                 context.startActivity(intent);
             }

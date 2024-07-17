@@ -10,10 +10,10 @@ import java.util.List;
 @Dao
 public interface ToDoListDao {
     @Insert( onConflict = OnConflictStrategy.REPLACE)
-    void insert (String task);
+    void insert (ToDoListModel toDoListModel);
 
     @Query("SELECT * FROM toDoList ORDER BY id DESC")
-    List<String>getAll();
+    List<ToDoListModel>getAll();
 
     @Query("UPDATE toDoList SET done =1 WHERE id= :id")
     void taskDone(int id);
