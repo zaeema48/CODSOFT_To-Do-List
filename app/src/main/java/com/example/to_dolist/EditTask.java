@@ -24,6 +24,7 @@ public class EditTask extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_edit_task);
         EditText taskText= findViewById(R.id.addTask);
         ImageView saveBtn= findViewById(R.id.save);

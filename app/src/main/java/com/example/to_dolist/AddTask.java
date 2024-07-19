@@ -1,6 +1,11 @@
 package com.example.to_dolist;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,11 +14,40 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class AddTask extends AppCompatActivity {
+    private RoomDB db;
+    private ToDoListDao taskDao;
+    RecyclerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
 
+        EditText addTask;
+        ImageView saveBtn;
+
+        addTask=findViewById(R.id.addTask);
+        saveBtn=findViewById(R.id.save);
+
+        db=RoomDB.getInstance(this);
+        taskDao=db.toDoListDao();
+
+        Intent intent = new Intent();
+        ToDoListModel model= (ToDoListModel) intent.getSerializableExtra("addTask");
+        addTask.setText(model.getTask());
+
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String task = addTask.getText().toString();
+                if(!task.isEmpty()){
+                    Toast.makeText(AddTask.this, "Task Added", Toast.LENGTH_SHORT).show();
+                    model.setTask(task);
+                    taskDao.insert(model);
+                    adapter.notifyDataSetChanged();
+                    finish();
+                }
+            }
+        });
     }
 }
