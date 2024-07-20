@@ -17,7 +17,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class EditTask extends AppCompatActivity {
 
-    ToDoListDao toDoListDao;
     private RoomDB db;  //private because to avoid naming conflict
     private ToDoListDao taskDao;
 

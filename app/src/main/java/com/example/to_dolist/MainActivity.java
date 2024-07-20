@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     private ToDoListDao taskDao;
     public static  RecyclerAdapter adapter;
     public static List<ToDoListModel>taskList;
-    private ToDoListDao toDoListDao;
 
 //    private ExecutorService executorService; //to handler the pool of threads
     @Override
@@ -29,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ImageView addBtn= findViewById(R.id.addBtn);
+        taskList= new ArrayList<>();
 
         db = RoomDB.getInstance(this);  //getting instance of roomDB for DAO
         taskDao=db.toDoListDao();    //with the help of this instance we get the method
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         //Setting adapter to recycler view
         RecyclerView recyclerView= findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        taskList= new ArrayList<>();
+
         adapter= new RecyclerAdapter(this, taskList);
         recyclerView.setAdapter(adapter);
 

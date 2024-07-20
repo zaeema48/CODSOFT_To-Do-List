@@ -1,5 +1,7 @@
 package com.example.to_dolist;
 
+import static com.example.to_dolist.MainActivity.adapter;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +18,6 @@ import androidx.core.view.WindowInsetsCompat;
 public class AddTask extends AppCompatActivity {
     private RoomDB db;
     private ToDoListDao taskDao;
-    RecyclerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,17 +33,14 @@ public class AddTask extends AppCompatActivity {
         db=RoomDB.getInstance(this);
         taskDao=db.toDoListDao();
 
-        Intent intent = new Intent();
-        ToDoListModel model= (ToDoListModel) intent.getSerializableExtra("addTask");
-        addTask.setText(model.getTask());
-
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String task = addTask.getText().toString();
                 if(!task.isEmpty()){
                     Toast.makeText(AddTask.this, "Task Added", Toast.LENGTH_SHORT).show();
-                    model.setTask(task);
+//                    model.setTask(task);
+                    ToDoListModel model = new ToDoListModel(task);
                     taskDao.insert(model);
                     adapter.notifyDataSetChanged();
                     finish();
