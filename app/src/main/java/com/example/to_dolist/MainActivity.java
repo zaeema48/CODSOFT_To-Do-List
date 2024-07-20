@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent (MainActivity.this, AddTask.class);
                 startActivity(intent);
+                taskList.clear();
+                taskList.addAll(taskDao.getAll());
                 adapter.notifyDataSetChanged();
             }
         });

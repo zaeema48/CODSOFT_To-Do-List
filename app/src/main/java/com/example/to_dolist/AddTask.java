@@ -1,6 +1,7 @@
 package com.example.to_dolist;
 
 import static com.example.to_dolist.MainActivity.adapter;
+import static com.example.to_dolist.MainActivity.taskList;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,6 +43,8 @@ public class AddTask extends AppCompatActivity {
 //                    model.setTask(task);
                     ToDoListModel model = new ToDoListModel(task);
                     taskDao.insert(model);
+                    taskList.clear();
+                    taskList.addAll(taskDao.getAll());
                     adapter.notifyDataSetChanged();
                     finish();
                 }

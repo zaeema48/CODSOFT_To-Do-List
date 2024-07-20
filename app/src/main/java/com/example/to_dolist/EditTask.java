@@ -1,6 +1,7 @@
 package com.example.to_dolist;
 
 import static com.example.to_dolist.MainActivity.adapter;
+import static com.example.to_dolist.MainActivity.taskList;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,7 +34,7 @@ public class EditTask extends AppCompatActivity {
         taskDao=db.toDoListDao();
 
         //to get the value/object that was passed through intent in Recycler adapter java
-        Intent intent = new Intent ();
+        Intent intent = getIntent();
         ToDoListModel toDoListModel = (ToDoListModel) intent.getSerializableExtra("toDoList"); //serialzable is used to pass the whole object (attributes) without it we need to pass all attributes separately and with string
 
         taskText.setText(toDoListModel.getTask());
@@ -47,6 +48,8 @@ public class EditTask extends AppCompatActivity {
                     Toast.makeText(EditTask.this, "Task Edited", Toast.LENGTH_SHORT).show();
                     toDoListModel.setTask(task);
                     taskDao.insert(toDoListModel);
+                    taskList.clear();
+                    taskList.addAll(taskDao.getAll());
                     adapter.notifyDataSetChanged();
                     finish(); //to go to prev page
                 }
@@ -57,6 +60,8 @@ public class EditTask extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 taskDao.deleteTask(toDoListModel.getId());
+                taskList.clear();
+                taskList.addAll(taskDao.getAll());
                 adapter.notifyDataSetChanged();
                 Toast.makeText(EditTask.this, "Task Deleted", Toast.LENGTH_SHORT).show();
             }
